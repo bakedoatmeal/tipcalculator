@@ -11,23 +11,17 @@ const addTip = document.querySelector('#add-tip')
 const subtractTip = document.querySelector('#subtract-tip')
 const darkMode = document.querySelector('#dark-mode')
 
-
+//Event listeners for all buttons and inputs
 billInput.addEventListener('input', updateTip)
-
 tipInput.addEventListener('input',  updateTip)
-
 peopleInput.addEventListener('input',  updateTip)
-
 addPeople.addEventListener('click',  addPressed)
-
 addTip.addEventListener('click',  addPressed)
-
 subtractTip.addEventListener('click',  subtractPressed)
-
 subtractPeople.addEventListener('click',  subtractPressed)
-
 darkMode.addEventListener('click', toggleDarkMode)
 
+//calculates new tip and updates display
 function updateTip() {
     const bill = parseFloat(billInput.value)
     const tipAmount = parseInt(tipInput.value)
@@ -38,6 +32,7 @@ function updateTip() {
     updateTotal(bill, tipAmount, people)
 }
 
+//calculates new total and updates display
 function updateTotal(bill, tip, people) {
     //console.log("update total called! ", people)
     total = (bill+bill*tip/100)
@@ -48,6 +43,7 @@ function updateTotal(bill, tip, people) {
     }
 }
 
+//if there are more than 2 people, display price per person
 function displayEach(bill, tip, people) {
     //console.log("displayEach called! ", people)
     each = (bill+bill*tip/100)/people
@@ -62,6 +58,7 @@ function displayEach(bill, tip, people) {
     }
 }
 
+//updates display when add btn pressed
 function addPressed (e) {
     if (e.target.classList.contains('tip')){
         newValue = parseInt(tipInput.value) + 1
@@ -73,12 +70,11 @@ function addPressed (e) {
         peopleInput.value = newValue
         //console.log(peopleInput.value)
     }
-        
-
-
+    
     updateTip()
 }
 
+//updates display when subtract btns pressed
 function subtractPressed (e) {
     if (e.target.classList.contains('tip')){
         newValue = parseInt(tipInput.value) - 1
@@ -93,7 +89,7 @@ function subtractPressed (e) {
     updateTip()
 }
 
-
+//toggles dark mode on and off
 function toggleDarkMode() {
     var element = document.body;
     element.classList.toggle("dark-mode");
