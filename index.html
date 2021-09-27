@@ -5,26 +5,35 @@
     <title>Tip Calculator</title>
     <link rel='stylesheet' href='styles.css'>
   </head>
-    <div>
-        <label>Bill</label>
-        <input>
-        <div>
-            <button>+</button>
-            <label>Tip %</label>
-            <input>
-            <button>-</button>
-        </div>
-        <div>
-            <button>+</button>
-            <label>Number of people</label>
-            <input>
-            <button>-</button>
-        </div>
-    </div>
-    <div>
-        <p id="tip_display">Tip</p>
-        <p id="total_display">Total</p>
-    </div>
   <body>
+    <div class="container">   
+        <div class="inputs">
+            <label>Bill</label>
+            <input class="input-bill" id="input-bill" type="number" min="0" value="0.00">
+            <label>Tip %</label>
+            <div class="inputWithButtons"> 
+                <button>+</button>
+                <input id="input-tip" type="number" min="0" max ="100" value="15">
+                <button>-</button>
+            </div>
+            <label>Number of people</label>
+            <div class="inputWithButtons">
+                <button>+</button>
+                <input id="input-people" type="number" min="1" value="1">
+                <button>-</button>
+            </div>
+        </div>
+        <div class="displays">
+            <div class="display-line">
+                <h1>Tip</h1>
+                <p id="display-tip"></p>
+            </div>
+            <div class="display-line">
+                <h1>Total</h1>
+                <p id="display-total"></p>
+            </div>
+        </div>
+     </div>
+    <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
