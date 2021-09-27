@@ -9,7 +9,7 @@ const addPeople = document.querySelector('#add-people')
 const subtractPeople = document.querySelector('#subtract-people')
 const addTip = document.querySelector('#add-tip')
 const subtractTip = document.querySelector('#subtract-tip')
-
+const darkMode = document.querySelector('#dark-mode')
 
 
 billInput.addEventListener('input', updateTip)
@@ -26,18 +26,20 @@ subtractTip.addEventListener('click',  subtractPressed)
 
 subtractPeople.addEventListener('click',  subtractPressed)
 
+darkMode.addEventListener('click', toggleDarkMode)
+
 function updateTip() {
     const bill = parseFloat(billInput.value)
     const tipAmount = parseInt(tipInput.value)
     const people = parseInt(peopleInput.value)
-    console.log('people: ', people)
+    //console.log('people: ', people)
     tip = (bill*tipAmount/100)
     displayTip.innerHTML = tip.toFixed(2)
     updateTotal(bill, tipAmount, people)
 }
 
 function updateTotal(bill, tip, people) {
-    console.log("update total called! ", people)
+    //console.log("update total called! ", people)
     total = (bill+bill*tip/100)
     displayTotal.innerHTML = total.toFixed(2)
 
@@ -47,14 +49,14 @@ function updateTotal(bill, tip, people) {
 }
 
 function displayEach(bill, tip, people) {
-    console.log("displayEach called! ", people)
+    //console.log("displayEach called! ", people)
     each = (bill+bill*tip/100)/people
     if (people > 1){
-        console.log("whatttt")
+        //console.log("whatttt")
         displayEachH1.innerHTML = "Each"
         displayEachP.innerHTML = each.toFixed(2)
     } else if (people == 1) {
-        console.log("IN THE LAST PLACE!")
+        //console.log("IN THE LAST PLACE!")
         displayEachH1.innerHTML = ""
         displayEachP.innerHTML = ""
     }
@@ -86,8 +88,13 @@ function subtractPressed (e) {
     else if (e.target.classList.contains('people')) {
         newValue = parseInt(peopleInput.value) - 1
         peopleInput.value = newValue
-        console.log(peopleInput.value)
+        //console.log(peopleInput.value)
     }
     updateTip()
 }
 
+
+function toggleDarkMode() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+ }
