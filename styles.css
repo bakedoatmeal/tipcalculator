@@ -73,3 +73,31 @@ button {
 .input-bill {
     width: 270px;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+.input-tip, .input-people {
+    border-radius: 0;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.add {
+    border-radius: 4px 0 0 4px;
+    border-style: solid;
+    border-width: 1px 0 1px 1px;
+}
+
+.subtract {
+    border-radius: 0 4px 4px 0;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+}
